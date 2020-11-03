@@ -5,6 +5,7 @@ from conans import ConanFile, CMake, tools
 
 class LibjpegTurboConan(ConanFile):
     name = "libjpeg-turbo"
+    version = "2.0.5"
     description = "SIMD-accelerated libjpeg-compatible JPEG codec library"
     topics = ("conan", "jpeg", "libjpeg", "image", "multimedia", "format", "graphics")
     url = "https://github.com/conan-io/conan-center-index"
@@ -55,8 +56,9 @@ class LibjpegTurboConan(ConanFile):
         if self.settings.os == "Emscripten":
             del self.options.SIMD
 
-    def build_requirements(self):
-        self.build_requires("nasm/2.14")
+    #def build_requirements(self):
+        #if self.settings.arch in [ "x86", "x86_64" ]:
+        #    self.build_requires("nasm/2.14")
 
     def source(self):
         tools.get(**self.conan_data["sources"][self.version])
