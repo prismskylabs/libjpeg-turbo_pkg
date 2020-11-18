@@ -124,7 +124,4 @@ class LibjpegTurboConan(ConanFile):
             return name + "-static"
         return name
 
-    def conan_info(self): # https://github.com/conan-io/conan/issues/212
-        if self.settings.compiler == "gcc" or self.settings.compiler == "clang":  # or3 self.settings.os != "Windows" or the like
-            self.info.settings.build_type = None # Make gcc to be all Release packages linkable to Debug too
 
